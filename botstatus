@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$1" == "" ]; then
+    echo "Missing required argument: command" 1>&2
+    exit 1
+fi
+status=$(/bin/python /home/stan/.i3/blocklets/client.py flockbots.digitalocean.com 12345 --command="status $1")
+# echo $status
+    echo $1 
+    echo " "
+if [[ "$status" == "up" ]]; then
+    echo "#65B354"
+
+else
+    echo "#CC3333"
+fi
